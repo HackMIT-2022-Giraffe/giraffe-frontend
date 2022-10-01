@@ -1,17 +1,22 @@
 import logo from './logo.svg';
 import { Canvas } from '@react-three/fiber'
-
-function MainScene() {
-  return <>
-    <mesh 
-  </>;
-}
+import Landing from './pages/Landing/Landing';
+import "./App.css"
+// function MainScene() {
+//   return <>
+//     <mesh 
+//   </>;
+// }
 
 function App() {
   return (
-    <Canvas shadowMap>
-      <MainScene />
-    </Canvas>
+    // <Canvas shadowMap>
+    //   <MainScene />
+    // </Canvas>
+    <div className='App'>
+
+    <Landing />
+    </div>
   );
 }
 
