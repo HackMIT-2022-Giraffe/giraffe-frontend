@@ -18,13 +18,13 @@ function Loading(props) {
 
     const transcript = figureText.text;
 
-    // const bullets_response = await fetch("http://localhost:3000/bullets", {
-    //   method: "POST",
-    //   body: {
-    //     text: text,
-    //   },
-    // });
-    // const bullets = bullets_resposne.json();
+    const bullets_response = await fetch("http://localhost:3001/bullet", {
+      method: "POST",
+      body: {
+        simpText: transcript,
+      },
+    });
+    const bullets = bullets_response.json()
     setgeneratingSlides(false);
 
     const speech_data = new FormData();
