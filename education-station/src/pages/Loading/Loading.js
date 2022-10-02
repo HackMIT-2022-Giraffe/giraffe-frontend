@@ -1,4 +1,3 @@
-
 import "./Loading.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,47 +7,42 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 
-function Loading() {
-  const [loadingTextbook, setloadingTextbook] = useState(false);
+function Loading(props) {
+  const [loadingTextbook, setloadingTextbook] = useState(true);
   const [generatingSlides, setgeneratingSlides] = useState(true);
-  const [animatingLecture, setanimatingLecture] = useState(false);
-
+  const [animatingLecture, setanimatingLecture] = useState(true);
 
   useEffect(async () => {
-    const figures_and_text_response = await fetch(
-      "http://localhost:5000/upload",
-      {
-        method: "POST",
-        //insert pdf body here
-      }
-    );
-    const figures_and_text = figures_and_text_response.json();
+    const figureText = props.figureText;
     setloadingTextbook(false);
 
-    transcript = figures_and_text.text;
+    const transcript = figureText.text;
 
-    const bullets_response = await fetch("http://localhost:3000/bullets", {
-      method: "POST",
-      body: {
-        text: text,
-      },
-    });
-    const bullets = bullets_resposne.json();
+    // const bullets_response = await fetch("http://localhost:3000/bullets", {
+    //   method: "POST",
+    //   body: {
+    //     text: text,
+    //   },
+    // });
+    // const bullets = bullets_resposne.json();
     setgeneratingSlides(false);
 
+    const speech_data = new FormData();
+    speech_data.append("transcript", transcript);
     const speech_response = await fetch("http://www.localhost:5000/speech", {
       method: "POST",
-      body: {
-        transcript: text,
-      },
+      // headers: {
+      //   "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      // },
+      body: speech_data,
     });
-    speech = speech_response.json();
+    const speech = speech_response.json();
     setanimatingLecture(false);
   });
 
   return (
     <>
-      <div>
+      <div className="parent">
         <div className="flex-container">
           <div className="loadingPane">
             <h5
