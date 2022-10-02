@@ -4,7 +4,7 @@ import { usePlane } from "@react-three/cannon";
 export const Plane = () => {
   const [ref] = usePlane(() => ({
     rotation: [-Math.PI / 2, 0, 0],
-    position: [0, -0.25, 0],
+    position: [0, -7, 0],
     material: {
       friction: 0.1
     }

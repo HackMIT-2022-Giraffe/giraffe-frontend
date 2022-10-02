@@ -10,7 +10,9 @@ import { PointerLockControls } from "three/examples/jsm/controls/PointerLockCont
 // Prefabs
 import { Plane } from "../components/Plane";
 import { Player } from "../components/Player";
-import { Cube } from "../components/Cube";
+import { TeacherCube, LectureCube } from "../components/Cube";
+
+import ReactAudioPlayer from 'react-audio-player';
 
 extend({ PointerLockControls });
 
@@ -52,7 +54,9 @@ export const Scene = () => {
         {/** Plane */}
         <Plane />
         {/** Cubes */}
-        <Cube position={[0, 0, -10]} />
+
+      <LectureCube position={[0, -3, -10]} />
+        <TeacherCube position={[-10, -5, -8]} />
       </Physics>
     </>
   );

@@ -7,12 +7,7 @@ function Landing() {
     const [selectedFile, setSelectedFile] = useState(null);
 
     const changeHandler = (event) => {
-        fileToBase64(event.target.files[0], (err, result) => {
-            if (result) {
-                setSelectedFile(result);
-                setShowModal(true);
-            }
-        })
+        setSelectedFile(event.target.files[0])
     }
 
     const fileToBase64 = (file, cb) => {
@@ -26,18 +21,21 @@ function Landing() {
         }
     }
 
-    const server_url = "http://localhost:3001"
+    const server_url = "http://localhost:3002"
 
     const submit = () => {
-        console.log("File ", selectedFile);
+        let form = new FormData();
+        form.append('file', selectedFile)
+        console.log(form.values())
         fetch(
             server_url + '/send-pdf',
             {
                 method: 'POST',
                 mode: 'no-cors',
-                body: JSON.stringify({
-                    file: selectedFile
-                })
+                body: form,
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
             }
         ).then((res) => {
             console.log("success");

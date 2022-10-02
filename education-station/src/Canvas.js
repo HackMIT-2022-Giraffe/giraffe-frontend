@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { applyProps, Canvas } from "react-three-fiber";
 import { Scene } from "./scene/Scene";
+import ReactSound from "react-sound";
+import Sound from './vid_lecture.mp3'
 
 export default function Lecture(props) {
 
@@ -13,10 +15,11 @@ export default function Lecture(props) {
   }, [])
   
   return (
-    <>
-      <Canvas shadowMap>
-        <Scene />
-      </Canvas>
-    </>
+    <div>
+        {/* <ReactSound url={Sound} playStatus={"PLAYING"} /> */}
+        <Canvas shadowMap>
+            <Scene />
+        </Canvas>
+    </div>
   );
 }
