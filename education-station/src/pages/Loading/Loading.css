@@ -61,8 +61,8 @@ h5 {
     min-height: 25%;
     padding: 3% 0%;
     filter: drop-shadow(8px 12px 10px rgba(255, 232, 30, .35));
-    color: #FFFFFF;
     border-style: none;
+    margin-left: 7%;
     
 }
 
@@ -71,6 +71,7 @@ p {
     text-align: center;
     margin-top:0%;
     margin-bottom:10%;
+    font-size: 180%;
 }
 
 .enabledButton:hover {

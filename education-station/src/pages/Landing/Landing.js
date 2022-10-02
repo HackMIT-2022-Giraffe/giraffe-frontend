@@ -21,8 +21,10 @@ function Landing() {
                         at the subject.
                     </p>
                     <div className="buttonContainer">
-                    <button className="uploadButton">
+                    <button className="uploadButton" >
+                        <a id="uploadLink" href="/loading">
                     <FontAwesomeIcon className="icon" icon={faUpload} />Upload PDF
+                    </a>
                     </button>
                     </div>
                 </div>

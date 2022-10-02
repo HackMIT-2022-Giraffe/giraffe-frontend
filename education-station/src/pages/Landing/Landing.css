@@ -44,7 +44,10 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
+#uploadLink {
+    text-decoration: none;
+    color: inherit;
+}
 
 .landingDescription{
     color: #DFDFDF;
