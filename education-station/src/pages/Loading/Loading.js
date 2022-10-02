@@ -26,7 +26,7 @@ function Loading() {
                     <div className="tipPane">
                         <div className="tipCard">
                             <p className="cardTitle yellowText">
-                                💡 TIP: Sleep!
+                                <span role="img">💡</span> TIP: Sleep!
                             </p>
                             <p>
                                 Research from the National Institute of Health has revealed that
