@@ -1,7 +1,7 @@
 import  "./Landing.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
-import React, { Component, useState } from 'react';
+import React, { Component, useRef, useState } from 'react';
 
 function Landing() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -10,6 +10,7 @@ function Landing() {
         fileToBase64(event.target.files[0], (err, result) => {
             if (result) {
                 setSelectedFile(result);
+                setShowModal(true);
             }
         })
     }
@@ -47,6 +48,13 @@ function Landing() {
         })
     }
 
+    const loadFile = () => {
+        fileUploadRef.current.click();
+    }
+
+    const fileUploadRef = useRef(null);
+    const [showModal, setShowModal] = useState(false);
+
     return (
         <>
         <div className="background">
@@ -65,13 +73,31 @@ function Landing() {
                         at the subject.
                     </p>
                     <div className="buttonContainer">
-                    <input style={{color: "#FFFFFF", borderStyle: "none", fontSize: "100%", marginBottom: "10%", justifyContent: "center"}} type="file" name="file" onChange={changeHandler} />
-                    <button className="uploadButton" onClick={submit} >
-                    <FontAwesomeIcon className="icon" icon={faUpload} />Upload PDF
+                    <input type="file" id="file" ref={fileUploadRef} style={{display: "none"}} onChange={changeHandler}/>
+                    <button className="uploadButton" onClick={loadFile} >
+                        <FontAwesomeIcon className="icon" icon={faUpload} />Upload PDF
                     </button>
                     </div>
                 </div>
             </div>
+
+
+            {showModal ? <div id="myModal" className="modal">
+
+                <div className="modal-content">
+                    <div className="modal-header">
+                    <span className="close" onClick={() => setShowModal(false)}>&times;</span>
+                    <h2>Textbook Upload Confirmation</h2>
+                    </div>
+                    <div className="modal-body">
+                    <p>Are you sure you want to upload and process this textbook?</p>
+                    <button className="confButton" onClick={submit}>Generate Textbook Experience</button>
+                    </div>
+                </div>
+                </div>
+                : null
+            }
+
         </div>
         </>
     )
