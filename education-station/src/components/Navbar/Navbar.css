@@ -20,7 +20,6 @@ ul {
   }
   
   li a:hover:not(.active) {
-    margin-top: 5%;
     background-color: #DFDFDF;
     color: #8D8D8D;
   }

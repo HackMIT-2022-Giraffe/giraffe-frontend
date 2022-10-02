@@ -1,4 +1,3 @@
-import Navbar from "../../components/Navbar/Navbar"
 import  "./Landing.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
@@ -7,24 +6,25 @@ function Landing() {
     return (
         <>
         <div className="background">
-            <Navbar />
             <div className="flex-container">
                 <div className="half titlePane">
-                    <h1>Giraffe</h1>
+                    <h1 className="giraffeLandingTitle">Giraffe</h1>
                     <hr className="divider"/>
-                    <h4>
+                    <h4 className="studyEffectively">
                         Welcome to <span className="gradientColor">effective</span> learning
                     </h4>
                 </div>
                 <div className="half descriptionPane">
-                    <p>
+                    <p className="landingDescription">
                         Instead of mindlessly breaking your head reading the textbook, experience a VR 
                         lecture which summarizes and teaches you the material based on the level you are 
                         at the subject.
                     </p>
                     <div className="buttonContainer">
-                    <button className="uploadButton">
+                    <button className="uploadButton" >
+                        <a id="uploadLink" href="/loading">
                     <FontAwesomeIcon className="icon" icon={faUpload} />Upload PDF
+                    </a>
                     </button>
                     </div>
                 </div>
