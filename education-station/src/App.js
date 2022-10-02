@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import { Canvas } from '@react-three/fiber'
 import Landing from './pages/Landing/Landing';
 import "./App.css"
+import Loading from './pages/Loading/Loading';
 // function MainScene() {
 //   return <>
 //     <mesh 
@@ -15,7 +16,7 @@ function App() {
     // </Canvas>
     <div className='App'>
 
-    <Landing />
+    <Loading />
     </div>
   );
 }
