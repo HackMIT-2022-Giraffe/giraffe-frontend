@@ -2,9 +2,11 @@ import  "./Landing.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import React, { useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Landing() {
     const [selectedFile, setSelectedFile] = useState(null);
+    const navigate = useNavigate();
 
     const changeHandler = (event) => {
         fileToBase64(event.target.files[0], (err, result) => {
@@ -42,6 +44,7 @@ function Landing() {
         ).then((res) => {
             console.log("success");
             console.log(res)
+            navigate("/loading");
         }).catch((err) => {
             console.log("errpr")
             console.log(err)
