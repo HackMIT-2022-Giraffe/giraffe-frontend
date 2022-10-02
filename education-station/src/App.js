@@ -1,18 +1,13 @@
-import logo from './logo.svg';
-import { Canvas } from '@react-three/fiber'
+import React from "react";
+import Lecture from "./Canvas";
 
-function MainScene() {
-  return <>
-    <mesh 
-  </>;
-}
 
-function App() {
+// Styles
+import "./styles.css";
+
+export default function App() {
   return (
-    <Canvas shadowMap>
-      <MainScene />
-    </Canvas>
+    <>
+    </>
   );
 }
-
-export default App;
