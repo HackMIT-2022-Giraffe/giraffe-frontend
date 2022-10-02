@@ -12,6 +12,7 @@ import Lecture from "./Canvas";
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
   const [figureText, setFigureText] = useState({});
+  const [speech, setSpeech] = useState(null);
 
   return (
     <Router>
@@ -19,7 +20,10 @@ export default function App() {
         <Route path="/" element={<Landing setFigureText={setFigureText} />} />
         <Route path="/about" element={<Landing />} />
         <Route path="/plans" element={<Landing />} />
-        <Route path="/loading" element={<Loading figureText={figureText} />} />
+        <Route
+          path="/loading"
+          element={<Loading figureText={figureText} setSpeech={setSpeech} />}
+        />
         <Route
           path="/lecture"
           element={<Lecture setShowNavBar={(next) => setShowNavBar(next)} />}

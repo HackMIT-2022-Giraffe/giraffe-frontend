@@ -24,7 +24,7 @@ function Loading(props) {
         simpText: transcript,
       },
     });
-    const bullets = bullets_response.json()
+    const bullets = bullets_response.json();
     setgeneratingSlides(false);
 
     const speech_data = new FormData();
@@ -37,6 +37,7 @@ function Loading(props) {
       body: speech_data,
     });
     const speech = speech_response.json();
+    props.setSpeech(speech);
     setanimatingLecture(false);
   });
 

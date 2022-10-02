@@ -2,24 +2,22 @@ import React, { useEffect } from "react";
 import { Canvas } from "react-three-fiber";
 import { Scene } from "./scene/Scene";
 import ReactSound from "react-sound";
-import Sound from './vid_lecture.mp3'
+// import Sound from './vid_lecture.mp3'
 
 export default function Lecture(props) {
-
   useEffect(() => {
     props.setShowNavBar(false);
 
     return () => {
-        props.setShowNavBar(true);
-    }
-  }, [])
-  
+      props.setShowNavBar(true);
+    };
+  }, []);
+
   return (
     <div>
-        {/* <ReactSound url={Sound} playStatus={"PLAYING"} /> */}
-        <Canvas shadowMap>
-            <Scene />
-        </Canvas>
+      <Canvas shadowMap>
+        <Scene />
+      </Canvas>
     </div>
   );
 }
