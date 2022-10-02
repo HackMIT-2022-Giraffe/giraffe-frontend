@@ -25,18 +25,26 @@ function Landing() {
         }
     }
 
-    const server_url = ""
+    const server_url = "http://localhost:3001"
 
     const submit = () => {
+        console.log("File ", selectedFile);
         fetch(
             server_url + '/send-pdf',
             {
                 method: 'POST',
-                body: {
+                mode: 'no-cors',
+                body: JSON.stringify({
                     file: selectedFile
-                }
+                })
             }
-        )
+        ).then((res) => {
+            console.log("success");
+            console.log(res)
+        }).catch((err) => {
+            console.log("errpr")
+            console.log(err)
+        })
     }
 
     return (
