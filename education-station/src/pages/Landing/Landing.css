@@ -1,5 +1,4 @@
 
-
 .half {
     flex: 5;
     padding-left: 5%;
@@ -11,12 +10,18 @@
     align-items: stretch;
 }
 
-.titlePane {
-    padding-right: 20%;
-    margin-left: 5%;
+
+.descriptionPane {
+    
+    min-width: 40%;
 }
 
-h1 {
+.titlePane {
+    padding-right: 20%;
+    min-width: 40%;
+}
+
+.giraffeLandingTitle {
     margin-top: 10%;
     font-size: 700%;
     color: #CED136;
@@ -27,7 +32,7 @@ h1 {
     color: #DFDFDF;
 }
 
-h4 {
+.studyEffectively {
     margin-top: 10%;
     color: #DFDFDF;
     font-size: 500%;
@@ -41,7 +46,7 @@ h4 {
 }
 
 
-p {
+.landingDescription{
     color: #DFDFDF;
     font-size: 180%;
     
@@ -57,8 +62,9 @@ p {
     background-image: linear-gradient(to bottom right, #434343 100%, #434343 40%);
     font-size: 200%;
     border-radius: 50px;
-    min-width: 85%;
+    min-width: 70%;
     min-height: 25%;
+    margin-left: 5%;
     padding: 3% 0%;
     filter: drop-shadow(8px 12px 10px rgba(255, 232, 30, .35));
     color: #FFFFFF;
@@ -71,9 +77,3 @@ p {
 }
 
 
-
-.descriptionPane {
-    margin-top: 4%;
-    /* margin-right: 5%; */
-    margin-right: 10%;
-}

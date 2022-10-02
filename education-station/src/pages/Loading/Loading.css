@@ -53,7 +53,7 @@ h5 {
 }
 
 
-.uploadButton {
+.continueButton {
     background-image: linear-gradient(to bottom right, #434343 100%, #434343 40%);
     font-size: 200%;
     border-radius: 50px;

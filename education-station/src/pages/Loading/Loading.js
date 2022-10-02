@@ -1,4 +1,3 @@
-import Navbar from "../../components/Navbar/Navbar"
 import "./Loading.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faCircleCheck, faCirclePlay} from '@fortawesome/free-solid-svg-icons'
@@ -10,8 +9,7 @@ function Loading() {
     const [animatingLecture, setanimatingLecture] = useState(false)
     return (
         <>
-            <div className="background">
-                <Navbar />
+            <div>
                 <div className="flex-container">
                     <div className="loadingPane">
                         <h5 className={loadingTextbook ? "loadingStates" : "loadingStates yellowText"}>
@@ -21,7 +19,7 @@ function Loading() {
                         </h5>
                         <h5 className={generatingSlides ? "loadingStates" : "loadingStates yellowText"}><FontAwesomeIcon icon={generatingSlides ? faCircleNotch : faCircleCheck} title="Generated Slides State" className={generatingSlides ? "fa-spin" : 'yellowText'} /> Generated Slides</h5>
                         <h5 className={animatingLecture ? "loadingStates" : "loadingStates yellowText"}><FontAwesomeIcon icon={animatingLecture ? faCircleNotch : faCircleCheck} title="Animating Lecture" className={animatingLecture ? "fa-spin" : 'yellowText'} /> Animated Lecture </h5>
-                        <button className={ !loadingTextbook && !generatingSlides && !animatingLecture? "uploadButton yellowText enabledButton" : "uploadButton disabledText"} disabled={!loadingTextbook && !generatingSlides && !animatingLecture}>
+                        <button className={ !loadingTextbook && !generatingSlides && !animatingLecture? "continueButton yellowText enabledButton" : "continueButton disabledText"} disabled={!loadingTextbook && !generatingSlides && !animatingLecture}>
                             <FontAwesomeIcon className="icon" icon={faCirclePlay} />Watch Lecture
                         </button>
                     </div>

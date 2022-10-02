@@ -3,6 +3,13 @@ import { Canvas } from '@react-three/fiber'
 import Landing from './pages/Landing/Landing';
 import "./App.css"
 import Loading from './pages/Loading/Loading';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import Navbar from './components/Navbar/Navbar';
 // function MainScene() {
 //   return <>
 //     <mesh 
@@ -11,13 +18,18 @@ import Loading from './pages/Loading/Loading';
 
 function App() {
   return (
-    // <Canvas shadowMap>
-    //   <MainScene />
-    // </Canvas>
-    <div className='App'>
 
-    <Loading />
-    </div>
+    <Router>
+      <Navbar></Navbar>
+
+      < Routes>
+        <Route path="/" element={<Landing/>} />
+        <Route path="/about" element={<Landing/>} />
+        <Route path="/plans" element={<Landing/>} />
+        <Route path="/loading" element={<Loading/>} />
+        {/* <Route path="/view" element={<Canvas shadowMap /> /> */}
+      </Routes>
+    </Router>
   );
 }
 
