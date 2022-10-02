@@ -1,80 +1,75 @@
-
+.parent {
+  height: 100vh;
+}
 
 .loadingPane {
-    flex: 7;
-    padding-left: 5%;
-    padding-right: 5%;
+  flex: 5;
+  padding: 5%;
 }
 
 .tipPane {
-    flex: 3;
-    padding-left: 5%;
-    padding-right: 5%;
+  flex: 5;
+  padding: 5%;
 }
 
 .flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 5%;
-    padding-left: 10%;
-    padding-right: 15%;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 15%;
 }
 
 .disabledText {
-    color: #626262;
+  color: #626262;
 }
 
 h5 {
-    font-size: 300%;
-    color: #FFFFFF;
+  font-size: 300%;
+  color: #ffffff;
 }
 
-.yellowText  {
-    color: #CED136
+.yellowText {
+  color: #ced136;
 }
 
 .tipCard {
-    background-image: linear-gradient(to bottom right, #434343 100%, #434343 40%);
-    border-radius: 50px;
-    filter: drop-shadow(8px 12px 10px rgba(255, 232, 30, .35));
-    color: #FFFFFF;
-    border-style: none;
-    padding: 5%;
-    min-width: 120%;
-    
+  background-image: linear-gradient(to bottom right, #434343 100%, #434343 40%);
+  border-radius: 50px;
+  filter: drop-shadow(8px 12px 10px rgba(255, 232, 30, 0.35));
+  color: #ffffff;
+  border-style: none;
+  padding: 5%;
+  min-width: 80%;
 }
 .cardTitle {
-    font-size: 180%;
-    margin-top: 8%;
-    margin-bottom: 5%;
-
+  font-size: 180%;
+  margin-top: 8%;
+  margin-bottom: 5%;
 }
 
-
 .continueButton {
-    background-image: linear-gradient(to bottom right, #434343 100%, #434343 40%);
-    font-size: 200%;
-    border-radius: 50px;
-    min-width: 50%;
-    min-height: 25%;
-    padding: 3% 0%;
-    filter: drop-shadow(8px 12px 10px rgba(255, 232, 30, .35));
-    border-style: none;
-    margin-left: 7%;
-    
+  background-image: linear-gradient(to bottom right, #434343 100%, #434343 40%);
+  font-size: 200%;
+  border-radius: 50px;
+  min-width: 50%;
+  min-height: 25%;
+  padding: 3% 0%;
+  filter: drop-shadow(8px 12px 10px rgba(255, 232, 30, 0.35));
+  border-style: none;
+  margin-left: 7%;
 }
 
 p {
-    color: white;
-    text-align: center;
-    margin-top:0%;
-    margin-bottom:10%;
-    font-size: 180%;
+  color: white;
+  text-align: center;
+  margin-top: 0%;
+  margin-bottom: 10%;
+  font-size: 180%;
 }
 
 .enabledButton:hover {
-    color: #f9fc46;
-    background-color: linear-gradient(to bottom right, #5b5b5b 100%, #5b5b5b 40%);
+  color: #f9fc46;
+  background-color: linear-gradient(to bottom right, #5b5b5b 100%, #5b5b5b 40%);
 }
