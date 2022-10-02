@@ -1,9 +1,44 @@
 import  "./Landing.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 function Landing() {
+    const [selectedFile, setSelectedFile] = useState(null);
+
+    const changeHandler = (event) => {
+        fileToBase64(event.target.files[0], (err, result) => {
+            if (result) {
+                setSelectedFile(result);
+            }
+        })
+    }
+
+    const fileToBase64 = (file, cb) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = function () {
+          cb(null, reader.result)
+        }
+        reader.onerror = function (error) {
+          cb(error, null)
+        }
+    }
+
+    const server_url = ""
+
+    const submit = () => {
+        fetch(
+            server_url + '/send-pdf',
+            {
+                method: 'POST',
+                body: {
+                    file: selectedFile
+                }
+            }
+        )
+    }
+
     return (
         <>
         <div className="background">
@@ -22,10 +57,9 @@ function Landing() {
                         at the subject.
                     </p>
                     <div className="buttonContainer">
-                    <button className="uploadButton" >
-                        <a id="uploadLink" href="/loading">
+                    <input style={{color: "#FFFFFF", borderStyle: "none", fontSize: "100%", marginBottom: "10%", justifyContent: "center"}} type="file" name="file" onChange={changeHandler} />
+                    <button className="uploadButton" onClick={submit} >
                     <FontAwesomeIcon className="icon" icon={faUpload} />Upload PDF
-                    </a>
                     </button>
                     </div>
                 </div>
