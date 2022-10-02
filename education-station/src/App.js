@@ -14,19 +14,19 @@ import React, { Component, useState } from 'react';
 import Lecture from './Canvas';
 
 export default function App() {
-  const [showNavBar, setShowNavBar] = useState(false);
+  const [showNavBar, setShowNavBar] = useState(true);
 
   return (
 
     <Router>
-      {showNavBar ? <div><Navbar /></div> : <></>}
+      {showNavBar ? <Navbar /> : <></>}
 
-      <Routes>
+      < Routes>
         <Route path="/" element={<Landing/>} />
         <Route path="/about" element={<Landing/>} />
         <Route path="/plans" element={<Landing/>} />
         <Route path="/loading" element={<Loading/>} />
-        <Route path="/lecture" element={<Lecture setShowNavBar={(next) => {setShowNavBar(next)}} />}  />
+        <Route path="/lecture" element={<Lecture setShowNavBar={(next) => setShowNavBar(next)} />}  />
         {/* <Route path="/view" element={<Canvas shadowMap /> /> */}
       </Routes>
     </Router>

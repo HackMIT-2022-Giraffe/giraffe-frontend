@@ -13,10 +13,10 @@ export default function Lecture(props) {
   }, [])
   
   return (
-    <div>
+    <>
       <Canvas shadowMap>
         <Scene />
       </Canvas>
-    </div>
+    </>
   );
 }
