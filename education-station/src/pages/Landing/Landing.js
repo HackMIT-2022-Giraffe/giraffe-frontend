@@ -4,58 +4,45 @@ import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import React, { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
+import axios from 'axios';
+
 function Landing() {
     const [selectedFile, setSelectedFile] = useState(null);
     const navigate = useNavigate();
+    const fileUploadRef = useRef(null);
 
     const changeHandler = (event) => {
-        fileToBase64(event.target.files[0], (err, result) => {
-            if (result) {
-                setSelectedFile(result);
-                setShowModal(true);
-            }
-        })
+        setSelectedFile(event.target.files[0]);
+        setShowModal(true);
     }
 
-    const fileToBase64 = (file, cb) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
-        reader.onload = function () {
-          cb(null, reader.result)
-        }
-        reader.onerror = function (error) {
-          cb(error, null)
-        }
-    }
-
-    const server_url = "http://localhost:3001"
+    const server_url = "http://127.0.0.1:5000"
 
     const submit = () => {
-        console.log("File ", selectedFile);
-        fetch(
-            server_url + '/send-pdf',
-            {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify({
-                    file: selectedFile
-                })
-            }
-        ).then((res) => {
-            console.log("success");
-            console.log(res)
-            navigate("/loading");
-        }).catch((err) => {
-            console.log("errpr")
-            console.log(err)
+
+        const formData = new FormData();
+
+		formData.append('pdf', selectedFile);
+
+		fetch(
+			server_url + '/upload-file',
+			{
+				method: 'POST',
+				body: formData,
+			}
+		)
+        .then((response) => response.json()).then((responseJson) => {
+            console.log(responseJson);
+            console.log("Successfully uploaded document")
+            navigate("/loading/" + responseJson.key)
         })
-    }
+	};
 
     const loadFile = () => {
         fileUploadRef.current.click();
     }
 
-    const fileUploadRef = useRef(null);
+    
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -76,7 +63,8 @@ function Landing() {
                         at the subject.
                     </p>
                     <div className="buttonContainer">
-                    <input type="file" id="file" ref={fileUploadRef} style={{display: "none"}} onChange={changeHandler}/>
+                    <input type="file" id="uploadedFile" name="uploadedFile" ref={fileUploadRef} style={{display: "none"}} onChange={changeHandler}/>
+
                     <button className="uploadButton" onClick={loadFile} >
                         <FontAwesomeIcon className="icon" icon={faUpload} />Upload PDF
                     </button>

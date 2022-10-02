@@ -2,12 +2,14 @@ import "./Loading.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faCircleCheck, faCirclePlay} from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
+import { useParams } from "react-router-dom"
 
 function Loading() {
     const [loadingTranscript, setLoadingTranscript] = useState(true)
     const [generatingSlides, setgeneratingSlides] = useState(true)
     const [animatingLecture, setanimatingLecture] = useState(true)
     
+    let {id} = useParams()
 
     const server_url = "http://localhost:3001"
 
@@ -17,39 +19,7 @@ function Loading() {
         "slides": null,
     }
 
-    // Loading Trascript
-    fetch(
-        server_url + "/transcript"
-    ).then((res) => {
-        console.log("success");
-        Playback["transcript"] = res
-        setLoadingTranscript(false)
-    }).catch((err) => {
-        console.log("errpr")
-        console.log(err)
-    })
-
-    fetch(
-        server_url + "/slides"
-    ).then((res) => {
-        console.log("success");
-        Playback["slides"] = res
-        setgeneratingSlides(false)
-    }).catch((err) => {
-        console.log("errpr")
-        console.log(err)
-    })
-
-    fetch(
-        server_url + "/animations"
-    ).then((res) => {
-        console.log("success");
-        Playback["animation"] = res
-        setanimatingLecture(false)
-    }).catch((err) => {
-        console.log("errpr")
-        console.log(err)
-    })
+    
 
     return (
         <>

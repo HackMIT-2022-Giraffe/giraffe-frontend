@@ -25,7 +25,7 @@ export default function App() {
         <Route path="/" element={<Landing/>} />
         <Route path="/about" element={<Landing/>} />
         <Route path="/plans" element={<Landing/>} />
-        <Route path="/loading" element={<Loading/>} />
+        <Route path="/loading/:id" element={<Loading/>} />
         <Route path="/lecture" element={<Lecture setShowNavBar={(next) => setShowNavBar(next)} />}  />
         {/* <Route path="/view" element={<Canvas shadowMap /> /> */}
       </Routes>
