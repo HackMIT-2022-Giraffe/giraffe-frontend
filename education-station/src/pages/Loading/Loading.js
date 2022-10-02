@@ -4,9 +4,9 @@ import { faCircleNotch, faCircleCheck, faCirclePlay} from '@fortawesome/free-sol
 import React, { useState } from 'react'
 
 function Loading() {
-    const [loadingTranscript, setLoadingTranscript] = useState(false)
+    const [loadingTranscript, setLoadingTranscript] = useState(true)
     const [generatingSlides, setgeneratingSlides] = useState(true)
-    const [animatingLecture, setanimatingLecture] = useState(false)
+    const [animatingLecture, setanimatingLecture] = useState(true)
     
 
     const server_url = "http://localhost:3001"

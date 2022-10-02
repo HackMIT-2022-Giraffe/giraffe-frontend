@@ -10,7 +10,7 @@ import Navbar from './components/Navbar/Navbar';
 
 // Styles
 import "./App.css";
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import Lecture from './Canvas';
 
 export default function App() {
