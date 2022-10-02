@@ -12,7 +12,7 @@ import { Plane } from "../components/Plane";
 import { Player } from "../components/Player";
 import { TeacherCube, LectureCube } from "../components/Cube";
 
-import ReactAudioPlayer from 'react-audio-player';
+
 
 extend({ PointerLockControls });
 
