@@ -16,7 +16,11 @@ import Navbar from './components/Navbar/Navbar';
 //   </>;
 // }
 
-function App() {
+// Styles
+import "./styles.css";
+import { Scene } from './scene/Scene';
+
+export default function App() {
   return (
 
     <Router>
@@ -27,10 +31,9 @@ function App() {
         <Route path="/about" element={<Landing/>} />
         <Route path="/plans" element={<Landing/>} />
         <Route path="/loading" element={<Loading/>} />
+        <Route path="/lecture" element={<Scene />} />
         {/* <Route path="/view" element={<Canvas shadowMap /> /> */}
       </Routes>
     </Router>
   );
 }
-
-export default App;
