@@ -1,3 +1,4 @@
+
 import "./Loading.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +12,7 @@ function Loading() {
   const [loadingTextbook, setloadingTextbook] = useState(false);
   const [generatingSlides, setgeneratingSlides] = useState(true);
   const [animatingLecture, setanimatingLecture] = useState(false);
+
 
   useEffect(async () => {
     const figures_and_text_response = await fetch(

@@ -9,6 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@react-three/cannon": "0.5.3",
+    "axios": "^0.27.2",
     "react": "^17.0.0",
     "react-dom": "17.0.0",
     "react-router-dom": "^6.4.1",
