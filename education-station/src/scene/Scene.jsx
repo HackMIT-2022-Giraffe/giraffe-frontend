@@ -10,7 +10,7 @@ import { PointerLockControls } from "three/examples/jsm/controls/PointerLockCont
 // Prefabs
 import { Plane } from "../components/Plane";
 import { Player } from "../components/Player";
-import { Cube } from "../components/Cube";
+import { TeacherCube, LectureCube } from "../components/Cube";
 
 extend({ PointerLockControls });
 
@@ -52,7 +52,8 @@ export const Scene = () => {
         {/** Plane */}
         <Plane />
         {/** Cubes */}
-        <Cube position={[0, 0, -10]} />
+        <LectureCube position={[0, 0, -10]} />
+        <TeacherCube position={[-20, 0, -10]} />
       </Physics>
     </>
   );

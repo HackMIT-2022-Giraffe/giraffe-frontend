@@ -1,18 +1,13 @@
 import  "./Landing.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
-import React, { Component, useRef, useState } from 'react';
+import React, { Component, useState } from 'react';
 
 function Landing() {
     const [selectedFile, setSelectedFile] = useState(null);
 
     const changeHandler = (event) => {
-        fileToBase64(event.target.files[0], (err, result) => {
-            if (result) {
-                setSelectedFile(result);
-                setShowModal(true);
-            }
-        })
+        setSelectedFile(event.target.files[0])
     }
 
     const fileToBase64 = (file, cb) => {
@@ -26,18 +21,21 @@ function Landing() {
         }
     }
 
-    const server_url = "http://localhost:3001"
+    const server_url = "http://localhost:3002"
 
     const submit = () => {
-        console.log("File ", selectedFile);
+        let form = new FormData();
+        form.append('file', selectedFile)
+        console.log(form.values())
         fetch(
             server_url + '/send-pdf',
             {
                 method: 'POST',
                 mode: 'no-cors',
-                body: JSON.stringify({
-                    file: selectedFile
-                })
+                body: form,
+                headers: {
+                    "Content-type": "multipart/form-data"
+                }
             }
         ).then((res) => {
             console.log("success");
@@ -47,13 +45,6 @@ function Landing() {
             console.log(err)
         })
     }
-
-    const loadFile = () => {
-        fileUploadRef.current.click();
-    }
-
-    const fileUploadRef = useRef(null);
-    const [showModal, setShowModal] = useState(false);
 
     return (
         <>
@@ -73,31 +64,13 @@ function Landing() {
                         at the subject.
                     </p>
                     <div className="buttonContainer">
-                    <input type="file" id="file" ref={fileUploadRef} style={{display: "none"}} onChange={changeHandler}/>
-                    <button className="uploadButton" onClick={loadFile} >
-                        <FontAwesomeIcon className="icon" icon={faUpload} />Upload PDF
+                    <input style={{color: "#FFFFFF", borderStyle: "none", fontSize: "100%", marginBottom: "10%", justifyContent: "center"}} type="file" name="file" onChange={changeHandler} />
+                    <button className="uploadButton" onClick={submit} >
+                    <FontAwesomeIcon className="icon" icon={faUpload} />Upload PDF
                     </button>
                     </div>
                 </div>
             </div>
-
-
-            {showModal ? <div id="myModal" className="modal">
-
-                <div className="modal-content">
-                    <div className="modal-header">
-                    <span className="close" onClick={() => setShowModal(false)}>&times;</span>
-                    <h2>Textbook Upload Confirmation</h2>
-                    </div>
-                    <div className="modal-body">
-                    <p>Are you sure you want to upload and process this textbook?</p>
-                    <button className="confButton" onClick={submit}>Generate Textbook Experience</button>
-                    </div>
-                </div>
-                </div>
-                : null
-            }
-
         </div>
         </>
     )
