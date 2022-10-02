@@ -1,7 +1,7 @@
 import  "./Landing.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
-import React, { Component, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 function Landing() {
     const [selectedFile, setSelectedFile] = useState(null);
