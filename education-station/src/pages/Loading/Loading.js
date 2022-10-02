@@ -6,11 +6,14 @@ import {
   faCirclePlay,
 } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Loading(props) {
   const [loadingTextbook, setloadingTextbook] = useState(true);
   const [generatingSlides, setgeneratingSlides] = useState(true);
   const [animatingLecture, setanimatingLecture] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(async () => {
     const figureText = props.figureText;
@@ -39,6 +42,7 @@ function Loading(props) {
     const speech = speech_response.json();
     props.setSpeech(speech);
     setanimatingLecture(false);
+    navigate('/');
   });
 
   return (

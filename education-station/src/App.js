@@ -26,7 +26,7 @@ export default function App() {
         />
         <Route
           path="/lecture"
-          element={<Lecture setShowNavBar={(next) => setShowNavBar(next)} />}
+          element={<Lecture speech={speech} setShowNavBar={(next) => setShowNavBar(next)} />}
         />
         {/* <Route path="/view" element={<Canvas shadowMap /> /> */}
       </Routes>
